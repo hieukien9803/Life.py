@@ -309,7 +309,7 @@ class Life(object):
         :param parameter:
         :return: None
         """
-        if parameter:
+        if parameter and ('x' in parameter)::
             rows, columns = parameter.split('x',2)
             if toolbox.is_integer(rows) and toolbox.is_integer(columns):
                 rows = int(rows)
@@ -321,13 +321,13 @@ class Life(object):
             prompt = 'How many cells in each row?'
             columns = toolbox.get_integer_between(2,120,prompt)
         self.__world = World(rows, columns)
-        self.random()
-        print(self.__world, end='')
+        #print(self.__world, end='')
         self.__generation = 0
         print()
         print(f'Your world size is now {rows} by {columns}.')
         print()
-        print(self.status() + '\n' + self.menu(), end=' ')
+        self.random()
+        #print(self.status() + '\n' + self.menu(), end=' ')
 
     def save(self, filename, myPath='./'):
         """
